@@ -1,0 +1,6 @@
+.stack-work/
+*~
+pkg.nix
+postgres/
+dist*
+result

@@ -3,19 +3,42 @@
 set -e
 
 SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
+APP_NAME="$1"
+APP_REGEX="^[a-z]((-[a-z]+)?[a-z0-9]*)*$"
 
-echo "
-Copying ez-haskell-nix template to the current directory..."
+if [[ $APP_NAME =~ $APP_REGEX ]];
+then
+  echo "
+  Got valid app name '$APP_NAME'..."
+else
+  echo "
+  Got invalid app name '$APP_NAME'
+  App name should satisfy regex $APP_REGEX
+  Terminate!
+  "
+  exit 1
+fi
+
+echo "  Copying ez-haskell-nix template to the current directory..."
 
 cp -a "$SCRIPT_DIR/template/." ./
 
-echo "Success!
+echo "  Applying given app name to template..."
 
-TODO:
+find . -type f -name "*" -print0 | xargs -0 sed -i "" -e "s/TODO_DEFINE_APP/$APP_NAME/g"
+
+echo "  Success!
+
+  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  ↓↓↓ IMPORTANT ↓↓↓
+  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
   1) Run './nix-shell.sh'
 
-  2) Init new project with 'stack new --bare my-best-app scotty-hspec-wai --force'
+  2) Init new project with 'stack new --bare $APP_NAME scotty-hspec-wai --force'
+       
+       Name 'scotty-hspec-wai' is just one of possible Haskell
+       project templates: https://github.com/commercialhaskell/stack-templates
 
   3) Run 'vi stack.yaml' and adjust some settings if needed:
        
@@ -25,4 +48,8 @@ TODO:
   4) Run 'stack test' and follow stack instructions if something is not working
 
   5) Run 'vi .' and enjoy comfortable Haskell development :)
+
+  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+  ↑↑↑ IMPORTANT ↑↑↑
+  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 "

@@ -39,7 +39,6 @@ stdenv.mkDerivation {
     cacert
     xxd
     git
-    ag
   ];
 
   TERM="xterm-256color";

@@ -1,44 +1,19 @@
 let overlays = [(import ./overlay.nix)];
-    vimrc-awesome = import (fetchTarball "https://github.com/tim2CF/vimrc/tarball/master") {};
-    all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-    hie = all-hies.unstable.selection { selector = p: { inherit (p) ghc865; }; };
+    haskell-ide = import (fetchTarball "https://github.com/tim2CF/vimrc/tarball/master") {};
 in
 
 { pkgs ? import <nixpkgs> {inherit overlays;} }:
 with pkgs;
 
-let ghc = pkgs.haskellPackages.ghcWithPackages (hpkgs: with hpkgs;
-  [
-    stack
-    cabal-install
-    zlib
-  ]
-);
-in
-
 stdenv.mkDerivation {
-  name = "p88lnd-env";
+  name = "TODO_DEFINE_APP-env";
   buildInputs = [
-    /* haskell */
-    ghc
-    /* editor */
-    hie
-    vimrc-awesome
-    nodejs
-    haskellPackages.ormolu
-    haskellPackages.brittany
-    haskellPackages.hindent
-    haskellPackages.hlint
-    haskellPackages.hoogle
-    haskellPackages.apply-refact
-    /* other */
-    curl
+    /* IDE */
+    haskell-ide
+    /* Apps */
     postgresql
-    nix
-    less
+    /* Utils */
     cacert
-    xxd
-    git
   ];
 
   TERM="xterm-256color";

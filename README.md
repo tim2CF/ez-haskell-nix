@@ -1,5 +1,7 @@
 # ez-haskell-nix
 
-Easy bootstrap of Haskell projects with Nix power
-
-<img src="logo.png" alt="logo"/>
+<p align="center">
+  Easy bootstrap of Haskell projects with Nix power
+  <br>
+  <img src="logo.png" alt="logo" width="500"/>
+</p>

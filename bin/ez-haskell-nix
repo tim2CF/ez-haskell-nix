@@ -21,7 +21,7 @@ fi
 
 echo "  Copying ez-haskell-nix template to the current directory..."
 
-cp -a "$SCRIPT_DIR/template/." ./
+cp -a "$SCRIPT_DIR/../template/." ./
 
 echo "  Applying given app name to template..."
 

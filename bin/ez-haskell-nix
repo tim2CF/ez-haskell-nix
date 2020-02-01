@@ -4,6 +4,8 @@ set -e
 
 SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 APP_NAME="$1"
+APP_NAME_CAP="$(echo "$APP_NAME" | awk '{print toupper($0)}')"
+APP_NAME_CAP="${APP_NAME_CAP//-/_}"
 APP_REGEX="^[a-z]((-[a-z]+)?[a-z0-9]*)*$"
 
 if [[ $APP_NAME =~ $APP_REGEX ]];
@@ -25,6 +27,7 @@ cp -a "$SCRIPT_DIR/../template/." ./
 
 echo "  Applying given app name to template..."
 
+find . -type f -name "*" -print0 | xargs -0 sed -i'' -e "s/TODO_DEFINE_APP_CAP/$APP_NAME_CAP/g"
 find . -type f -name "*" -print0 | xargs -0 sed -i'' -e "s/TODO_DEFINE_APP/$APP_NAME/g"
 
 echo "  Success!

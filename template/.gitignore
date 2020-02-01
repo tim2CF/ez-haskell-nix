@@ -1,4 +1,5 @@
 .stack-work/
+TODO_DEFINE_APP.cabal
 *~
 pkg.nix
 postgres/

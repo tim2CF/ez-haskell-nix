@@ -9,7 +9,6 @@ in
     stdenv.mkDerivation {
       name = "ez-haskell-nix";
       src = nix-gitignore.gitignoreSourcePure ignore-patterns ./.;
-      propagatedBuildInputs = [coreutils];
       dontBuild = true;
       installPhase = ''
         mkdir -p $out/

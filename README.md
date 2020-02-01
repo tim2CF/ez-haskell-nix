@@ -53,3 +53,21 @@ echo "export PATH=$(pwd)/ez-haskell-nix/bin/:\$PATH" >> ~/.zshrc
 ```bash
 nix-env -i -f https://github.com/tim2CF/ez-haskell-nix/archive/master.tar.gz
 ```
+
+# Usage
+
+```bash
+mkdir ./hello-haskell && cd ./hello-haskell
+
+ez-haskell-nix hello-haskell
+```
+
+<br>
+<p align="center">
+  <tt>
+    Made with ❤️ by
+    <a href="https://itkach.uk" target="_blank">Ilja Tkachuk</a>
+    aka
+    <a href="https://github.com/timCF" target="_blank">timCF</a>
+  </tt>
+</p>

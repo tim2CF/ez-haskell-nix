@@ -49,3 +49,7 @@ echo "export PATH=$(pwd)/ez-haskell-nix/:\$PATH" >> ~/.zshrc
 ```
 
 ### With Nix
+
+```bash
+nix-env -i -f https://github.com/tim2CF/ez-haskell-nix/archive/master.tar.gz
+```

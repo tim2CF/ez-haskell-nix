@@ -16,21 +16,7 @@
 
 - Automated builds of thin Docker images
 
-- Ultimate Haskell IDE
-
-  - Syntax highlighting
-
-  - Auto-complete
-
-  - Auto-format
-
-  - Auto-refactoring
-
-  - Jump to definition
-
-  - Compiler suggestions
-
-  - Embedded Hoogle docs
+- [Ultimate Haskell IDE](https://github.com/tim2CF/vimrc)
 
 # Prerequisites
 

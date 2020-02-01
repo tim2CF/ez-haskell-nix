@@ -26,18 +26,18 @@
 
 # Installation
 
+### With Nix
+
+```bash
+nix-env -i -f https://github.com/tim2CF/ez-haskell-nix/archive/master.tar.gz
+```
+
 ### Without Nix
 
 ```bash
 git clone https://github.com/tim2CF/ez-haskell-nix.git
 
 echo "export PATH=$(pwd)/ez-haskell-nix/bin/:\$PATH" >> ~/.zshrc
-```
-
-### With Nix
-
-```bash
-nix-env -i -f https://github.com/tim2CF/ez-haskell-nix/archive/master.tar.gz
 ```
 
 # Usage

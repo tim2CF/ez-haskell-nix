@@ -16,7 +16,7 @@
 
 - Automated builds of thin Docker images
 
-- [Ultimate Haskell IDE](https://github.com/tim2CF/vimrc)
+- [Ultimate Haskell IDE](https://github.com/tim2CF/ultimate-haskell-ide)
 
 # Prerequisites
 

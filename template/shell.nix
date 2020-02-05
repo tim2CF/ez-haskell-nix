@@ -1,5 +1,5 @@
 let overlays = [(import ./overlay.nix)];
-    haskell-ide = import (fetchTarball "https://github.com/tim2CF/vimrc/tarball/master") {};
+    haskell-ide = import (fetchTarball "https://github.com/tim2CF/ultimate-haskell-ide/tarball/master") {};
 in
 
 { pkgs ? import <nixpkgs> {inherit overlays;} }:

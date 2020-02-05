@@ -23,7 +23,7 @@ fi
 echo "starting postgres..."
 postgres-sh -c 'pg_ctl start -l $PGLOG -o "-c listen_addresses= -c unix_socket_directories=$PGHOST"'
 
-postgres-sh -c 'createdb p88lnd'
+postgres-sh -c 'createdb TODO_DEFINE_APP'
 
 #
 # done

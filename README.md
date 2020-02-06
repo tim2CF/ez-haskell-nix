@@ -43,8 +43,11 @@ echo "export PATH=$(pwd)/ez-haskell-nix/bin/:\$PATH" >> ~/.zshrc
 # Usage
 
 ```bash
+# if you don't have a project - just create new directory
 mkdir ./hello-haskell && cd ./hello-haskell
 
+# and then nixify it
+# it can be applied to already existing projects as well
 ez-haskell-nix hello-haskell
 ```
 

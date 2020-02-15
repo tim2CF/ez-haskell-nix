@@ -4,6 +4,8 @@ set -e
 
 # Disable HTTP2 (related to https://github.com/NixOS/nix/issues/2733)
 echo 'http2 = false' >> /etc/nix/nix.conf
+nix-channel --add https://nixos.org/channels/nixos-19.09 nixpkgs
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
 nix-channel --update
 nix-env -iA nixpkgs.openssh nixpkgs.git nixpkgs.docker nixpkgs.cabal2nix
 cabal2nix . > pkg.nix

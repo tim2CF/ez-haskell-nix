@@ -3,7 +3,7 @@
 set -m
 
 #
-# postgres
+# Postgres
 #
 
 if [[ $EUID -ne 0 ]]; then
@@ -22,6 +22,10 @@ if [ ! -d $PGDATA ]; then
 fi
 echo "starting postgres..."
 postgres-sh -c 'pg_ctl start -l $PGLOG -o "-c listen_addresses= -c unix_socket_directories=$PGHOST"'
+
+# NOTE : some Postgres bullshit - it crashes if createdb is executed too soon
+echo "sleeping for 3s to prevent postgres/createdb race condition..."
+sleep 3;
 
 postgres-sh -c 'createdb TODO_DEFINE_APP'
 

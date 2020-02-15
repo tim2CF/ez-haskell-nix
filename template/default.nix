@@ -1,6 +1,6 @@
 let overlays = [(import ./overlay.nix)];
 in
-  { pkgs ? import <nixpkgs> {inherit overlays;} }:
+  { pkgs ? import <nixpkgs-unstable> {inherit overlays;} }:
     with pkgs;
       /*  */
       /* TODO : minimize docker image size */

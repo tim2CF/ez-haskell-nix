@@ -1,5 +1,6 @@
 self: super:
   let
+    unstable = import <nixpkgs-unstable> {};
     callPackage = self.lib.callPackageWith self.haskellPackages;
     dontCheck = self.haskell.lib.dontCheck;
     doJailbreak = self.haskell.lib.doJailbreak;
@@ -12,8 +13,10 @@ self: super:
       haskellPackages = super.haskell.packages.ghc865.extend(
         self': super': {
           proto3-suite = dontCheck (doJailbreak super'.proto3-suite);
-          hspec-wai = self'.callHackage "hspec-wai" "0.10.1" {};
-          hspec-wai-json = self'.callHackage "hspec-wai-json" "0.10.1" {};
+          hspec-wai = unstable.haskellPackages.hspec-wai_0_10_1;
+          hspec-wai-json = unstable.haskellPackages.hspec-wai-json_0_10_1;
+          scotty = unstable.haskellPackages.scotty;
+          ormolu = unstable.haskellPackages.ormolu;
           persistent-migration = dontCheck persistent-migration;
         }
       );

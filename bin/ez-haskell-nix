@@ -27,8 +27,8 @@ cp -a "$SCRIPT_DIR/../template/." ./
 
 echo "  Applying given app name to template..."
 
-find . -type f -name "*" -print0 | xargs -0 sed -i'' -e "s/TODO_DEFINE_APP_CAP/$APP_NAME_CAP/g"
-find . -type f -name "*" -print0 | xargs -0 sed -i'' -e "s/TODO_DEFINE_APP/$APP_NAME/g"
+find . -type f -name "*" -print0 | xargs -0 sed -i '' -e "s/TODO_DEFINE_APP_CAP/$APP_NAME_CAP/g"
+find . -type f -name "*" -print0 | xargs -0 sed -i '' -e "s/TODO_DEFINE_APP/$APP_NAME/g"
 
 echo "  Success!
 

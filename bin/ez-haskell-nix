@@ -2,6 +2,7 @@
 
 set -e
 
+LC_CTYPE=C
 SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 APP_NAME="$1"
 APP_NAME_CAP="$(echo "$APP_NAME" | awk '{print toupper($0)}')"
@@ -39,12 +40,12 @@ echo "  Success!
   1) Run './nix-shell.sh'
 
   2) Init new project with 'stack new --bare $APP_NAME scotty-hspec-wai --force'
-       
+
        Name 'scotty-hspec-wai' is just one of possible Haskell
        project templates: https://github.com/commercialhaskell/stack-templates
 
   3) Run 'vi stack.yaml' and adjust some settings if needed:
-       
+
        resolver: lts-14.21
        system-ghc: true
 

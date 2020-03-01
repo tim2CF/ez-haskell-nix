@@ -2,7 +2,6 @@
 
 set -e
 
-LC_CTYPE=C
 SCRIPT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 APP_NAME="$1"
 APP_NAME_CAP="$(echo "$APP_NAME" | awk '{print toupper($0)}')"
@@ -28,8 +27,8 @@ cp -a "$SCRIPT_DIR/../template/." ./
 
 echo "  Applying given app name to template..."
 
-find . -type f -name "*" -print0 | xargs -0 sed -i '' -e "s/TODO_DEFINE_APP_CAP/$APP_NAME_CAP/g"
-find . -type f -name "*" -print0 | xargs -0 sed -i '' -e "s/TODO_DEFINE_APP/$APP_NAME/g"
+find . -type f \( -iname '*.nix' -o -iname '*.sh' -o -iname '.gitignore' -o -iname '*.yaml' -o -iname '*.json' -o -iname '*.yml' \) -print0 | xargs -0 sed -i '' -e "s/TODO_DEFINE_APP_CAP/$APP_NAME_CAP/g"
+find . -type f \( -iname '*.nix' -o -iname '*.sh' -o -iname '.gitignore' -o -iname '*.yaml' -o -iname '*.json' -o -iname '*.yml' \) -print0 | xargs -0 sed -i '' -e "s/TODO_DEFINE_APP/$APP_NAME/g"
 
 echo "  Success!
 
